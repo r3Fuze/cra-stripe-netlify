@@ -1,4 +1,7 @@
 import React, { Component } from "react"
+import { Elements } from "react-stripe-elements"
+
+import CheckoutForm from "./CheckoutForm"
 import logo from "./logo.svg"
 import "./App.css"
 
@@ -35,9 +38,13 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
+          <div className="checkout">
+            <h1>React Stripe Elements Example</h1>
+            <Elements>
+              <CheckoutForm />
+            </Elements>
+          </div>
+
           <FunctionDemo />
         </header>
       </div>
