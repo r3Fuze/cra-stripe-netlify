@@ -1,6 +1,33 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react"
+import logo from "./logo.svg"
+import "./App.css"
+
+class FunctionDemo extends Component {
+  state = { loading: false, msg: null }
+
+  handleClick = e => {
+    e.preventDefault()
+
+    this.setState({ loading: true })
+    fetch("/.netlify/functions/hello")
+      .then(res => res.json())
+      .then(json => this.setState({ loading: false, msg: json.msg }))
+  }
+
+  render() {
+    const { loading, msg } = this.state
+
+    return (
+      <p>
+        <button onClick={this.handleClick}>
+          {loading ? "Loading..." : "Call function"}
+        </button>
+        <br />
+        <span>{msg}</span>
+      </p>
+    )
+  }
+}
 
 class App extends Component {
   render() {
@@ -11,18 +38,11 @@ class App extends Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <FunctionDemo />
         </header>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

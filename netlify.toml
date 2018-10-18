@@ -1,0 +1,4 @@
+[build]
+  command = "yarn build && yarn netlify-lambda build src/functions"
+  functions = "functions"
+  publish = "build"
