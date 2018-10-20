@@ -1,9 +1,21 @@
 import React, { Component } from "react"
 import { Elements } from "react-stripe-elements"
+import styled from "styled-components/macro"
 
 import CheckoutForm from "./CheckoutForm"
 import logo from "./logo.svg"
 import "./App.css"
+
+const Button = styled.a`
+  display: inline-block;
+  border-radius: 3px;
+  padding: 0.5rem 0;
+  margin: 0.5rem 1 rem;
+  width: 11rem;
+  border: 2px solid white;
+  color: ${props => (props.primary ? "palevioletred" : "white")};
+  background: ${props => (props.primary ? "white" : "transparent")};
+`
 
 class FunctionDemo extends Component {
   state = { loading: false, msg: null }
@@ -22,9 +34,9 @@ class FunctionDemo extends Component {
 
     return (
       <p>
-        <button onClick={this.handleClick}>
+        <Button onClick={this.handleClick}>
           {loading ? "Loading..." : "Call function"}
-        </button>
+        </Button>
         <br />
         <span>{msg}</span>
       </p>
