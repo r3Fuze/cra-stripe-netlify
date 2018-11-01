@@ -5,7 +5,7 @@ const createOptions = () => {
   return {
     style: {
       base: {
-        fontSize: "18px",
+        fontSize: "19px",
         color: "#424770",
         letterSpacing: "0.025em",
         "::placeholder": {
